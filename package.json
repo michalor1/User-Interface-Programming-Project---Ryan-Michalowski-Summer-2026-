@@ -1,0 +1,19 @@
+{
+  "name": "webdev_project",
+  "version": "1.0.0",
+  "description": "Media Rating Application",
+  "license": "ISC",
+  "author": "Ryan Michalowski",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
