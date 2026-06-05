@@ -1,6 +1,6 @@
 # Project Description 
 
-## Media Review Application 
+## Media Rating Application 
 
 ### What is the purpose of this app?
 #### The purpose of this app is to allow users to rate a chosen piece of media on a rating system of 1 star out of 5. Users will submit their rating in the form of a post including an: image attachment of the peice of media, rating out of 5, comment/description of the rating. 
