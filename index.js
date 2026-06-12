@@ -1,4 +1,8 @@
 require("dotenv").config()
+
+//This is needed to connect without getting the error "querySrv ECONNREFUSED"
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
+
 const mongoose = require("mongoose")
 const express = require("express")
 const app = express()
