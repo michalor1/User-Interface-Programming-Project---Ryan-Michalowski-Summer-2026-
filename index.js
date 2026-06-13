@@ -15,6 +15,7 @@ mongoose.connect(process.env.dbURL)
     .catch(error => console.log(error));
 
 const userRoute = require("./server/routes/user")
+const ratingRoute = require("./server/routes/rating")
 
 // CORS middleware
 app.use(function(req, res, next) {
@@ -28,6 +29,7 @@ app.use(express.static(__dirname + "/public"))
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/public", "index.html")))
 
 app.use("/users", userRoute)
+app.use("/ratings", ratingRoute)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`server started on PORT ${PORT}! `))
