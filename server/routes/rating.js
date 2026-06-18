@@ -7,7 +7,7 @@ router
   .post('/createRating', async (req, res) => {
     try {
        const rating = await Rating.createRating(
-        req.body.title, req.body.content, req.user._id)
+        req.body.title, req.body.content, req.body._id)
         res.send(rating) 
       } catch (error) {
         res.status(401).send({ message: error.message })
@@ -16,7 +16,7 @@ router
 
   .get('/getRating', async (req, res) => {
     try {
-      await Rating.checkUser(req.body.id, req.user._id)
+      await Rating.checkUser(req.body.id, req.body._id)
       const rating = await Rating.getRating(req.body.id)
       res.send(rating);
     } catch (error) {
@@ -26,7 +26,7 @@ router
 
   .put('/updateRating', async (req, res) => {
     try {
-      await Rating.checkUser(req.body.id, req.user._id)
+      await Rating.checkUser(req.body.id)
       const rating = await Rating.updateRating(req.body.id, req.body.title, req.body.content)
       res.send(rating)
     } catch (error) {
@@ -36,7 +36,7 @@ router
 
   .delete('/deleteRating', async (req, res) => {
     try {
-      await Rating.checkUser(req.body.id, req.user._id)
+      await Rating.checkUser(req.body.id)
       await Rating.deleteRating(req.body.id)
       res.send({ success: 'Rating deleted' })
     } catch (error) {
