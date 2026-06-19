@@ -26,11 +26,11 @@ const Rating = mongoose.model("Rating", ratingSchema)
 async function checkUser(id, userId) {
   const rating = await Rating.findById(id)
   if (!rating) throw Error("Rating not found")
-  if (rating.userId !== userId) throw Error("Unauthorized User")
+  if (rating.userId.toString() !== userId) throw Error("Unauthorized User")
   return rating
 }
-async function createRating(title,content,userId,mediaId) {
-    if (!title || !content) throw Error("Please Create a Title and Rating")
+async function createRating(title,content,score, userId,mediaId) {
+    if (!title || !content) throw Error("Please CCreate a Title and Rating")
     const newRating = await Rating.create({
         title: title,
         content: content,

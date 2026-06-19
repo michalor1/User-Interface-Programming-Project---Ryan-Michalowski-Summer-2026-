@@ -23,22 +23,29 @@ const mediaSchema = new mongoose.Schema({
 
 const Media = mongoose.model("Media", mediaSchema)
 
+async function checkUser(id, userId) {
+  const media = await Media.findById(id)
+  if (!media) throw Error("Media not found")
+  if (media.userId.toString() !== userId) throw Error("Unauthorized User")
+  return media
+}
+
 async function createMedia(title, description, medium, userId) {
-    if (!title || !description || !medium) throw Error("Please make sure to fill out all fields")
-   const validMediums = ['Book', 'Movie', 'TV Show', 'Video Game', 'Music', 'Other']
-   if (!validMediums.includes(medium)) throw Error("Invalid medium type")
+    if (!title || !description || !medium || !userId) throw Error("Please make sure to fill out all fields")
+    const validMediums = ['Book', 'Movie', 'TV Show', 'Video Game', 'Music', 'Other']
+    if (!validMediums.includes(medium)) throw Error("Invalid medium type")
     const newMedia = await Media.create({
         title: title,
         description: description,
         medium: medium,
         userId: userId
     })
-        return newMedia._doc
+    return newMedia._doc
 }
 
 async function getMedia(id) {
     const media = await Media.findById(id)
-  if(!media) throw Error("No Initial Media Post Found")
+  if(!media) throw Error("No Post Found")
   return media._doc
 }
 async function updateMedia(id, title, description, medium) {
@@ -51,5 +58,5 @@ async function deleteMedia(id) {
 }  
 
 module.exports = {
-    createMedia, getMedia, updateMedia, deleteMedia
+   checkUser, createMedia, getMedia, updateMedia, deleteMedia
 }

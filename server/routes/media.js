@@ -9,14 +9,14 @@ router
     try {
        const media = await Media.createMedia(
         req.body.title, req.body.description, req.body.medium, req.body.userId)
-        res.send(media) 
+        res.send(media)
       } catch (error) {
         res.status(401).send({ message: error.message })
      }
   })
   .get('/getMedia', async (req, res) => {
     try {
-      await Media.checkUser(req.body.id)
+      await Media.checkUser(req.body.id, req.body.userId)
       const media = await Media.getMedia(req.body.id)
       res.send(media)
     } catch (error) {
