@@ -26,7 +26,7 @@ const Media = mongoose.model("Media", mediaSchema)
 async function checkUser(id, userId) {
   const media = await Media.findById(id)
   if (!media) throw Error("Media not found")
-  if (media.userId.toString() !== userId) throw Error("Unauthorized User")
+  if (media.userId !== userId) throw Error("Unauthorized User")
   return media
 }
 
