@@ -6,6 +6,11 @@ const ratingSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  mediaId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Media",
+    required: true
+  },
   title: {
     type: String,
     required: true
@@ -24,12 +29,13 @@ async function checkUser(id, userId) {
   if (rating.userId !== userId) throw Error("Unauthorized User")
   return rating
 }
-async function createRating(title,content,userId) {
+async function createRating(title,content,userId,mediaId) {
     if (!title || !content) throw Error("Please Create a Title and Rating")
     const newRating = await Rating.create({
         title: title,
         content: content,
-        userId: userId
+        userId: userId,
+        mediaId: mediaId
     })
         return newRating._doc
 }
