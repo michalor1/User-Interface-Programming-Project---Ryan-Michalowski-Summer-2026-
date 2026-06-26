@@ -1,9 +1,12 @@
 
-
+h1 {font-weight: Bold }
 
 body {
+  background-color:black;
+  color: rgb(201, 201, 201);
   padding: 20px;
 }
+form {width: 100%;  max-width: 500px}
 
 .App-logo {
   height: 40vmin;

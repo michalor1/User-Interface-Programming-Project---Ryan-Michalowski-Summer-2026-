@@ -18,7 +18,11 @@ function App() {
     <div className="App">
       <Navbar />
       <Profile />
+      <br/>
+      <br/>
       <LoginForm />
+      <br/>
+      <br/>
       <RegisterForm />
     </div>
   );

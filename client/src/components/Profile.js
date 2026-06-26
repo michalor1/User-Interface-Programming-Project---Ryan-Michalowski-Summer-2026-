@@ -2,7 +2,8 @@ const Profile = () => {
     return (
         <div>  
             {/* Profile Header */}
-            <h1 className = "shadow-lg p-3 mb-5 bg-body-tertiary rounded">Profile</h1>
+            <h1 className = "shadow-lg p-3">Profile</h1>
+            <hr />
                  <button type="button" className="btn btn-secondary btn-sm">Edit Profile</button>
             
              <div className="container">
@@ -10,7 +11,7 @@ const Profile = () => {
                 
                 {/*Profile Navbar*/}
                 <div>
-                 <nav className= "navbar navbar-expand bg-body-tertiary p-3">
+                 <nav className= "navbar navbar-expand bg-body-tertiary p-3" data-bs-theme="dark" >
                  <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                  <img src="/images/profile-image-plus-round-1327-svgrepo-com.svg" alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
@@ -38,7 +39,6 @@ const Profile = () => {
 
                 
                 {/* Bio*/}
-                <hr />
                 <h2 className="text-primary display-8 p-2">Bio</h2>
                 <hr />
 
