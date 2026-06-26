@@ -11,4 +11,4 @@
 ### What actions will users be able to perform?
 #### Users will have the ability to: sign up, add images, create posts, share posts with other users, select a rating from 1 to 5 stars.
 
-![ERD for Project](./public/images/ERD.png)
+![ERD for Project](./client/public/images/ERD.png)
